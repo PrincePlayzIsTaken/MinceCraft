@@ -1,0 +1,9 @@
+document.addEventListener('mousedown', event => {
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+  const intersects = raycaster.intersectObjects(blocks);
+  if (intersects.length > 0) {
+    const block = intersects[0].object;
+    if (event.button === 0) {
+      const position = block.position.clone().add(block.normal);
+     
